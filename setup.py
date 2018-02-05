@@ -4,10 +4,10 @@ DeceptionLogicAPI setup
 import os
 from setuptools import setup
 
-here = os.path.abspath(os.path.dirname(__file__))
+HERE = os.path.abspath(os.path.dirname(__file__))
 
-with open(os.path.join(here, 'README.rst')) as f:
-    long_desc = f.read()
+with open(os.path.join(HERE, 'README.rst')) as f:
+    LONG_DESC = f.read()
 
 setup(
     name="DeceptionLogicAPI",
@@ -21,7 +21,7 @@ setup(
     url="https://github.com/deceptionlogic/deception-api",
     download_url="https://github.com/deceptionlogic/deception-api",
     packages=['DeceptionLogicAPI'],
-    long_description=long_desc,
+    long_description=LONG_DESC,
     classifiers=[
         "Intended Audience :: Developers",
         "Topic :: Software Development :: Libraries :: Python Modules",
