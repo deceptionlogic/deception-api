@@ -1,5 +1,5 @@
 """
-DeceptionLogicAPI setup
+deceptionlogic setup
 """
 import os
 from setuptools import setup
@@ -10,7 +10,7 @@ with open(os.path.join(HERE, 'README.rst')) as f:
     LONG_DESC = f.read()
 
 setup(
-    name="DeceptionLogicAPI",
+    name="deceptionlogic",
     version="0.0.1",
     author="Deception Logic, Corp.",
     author_email="info@deceptionlogic.com",
@@ -20,7 +20,7 @@ setup(
     keywords="wrapper library deception logic api",
     url="https://github.com/deceptionlogic/deception-api",
     download_url="https://github.com/deceptionlogic/deception-api",
-    packages=['DeceptionLogicAPI'],
+    packages=['deceptionlogic'],
     long_description=LONG_DESC,
     classifiers=[
         "Intended Audience :: Developers",

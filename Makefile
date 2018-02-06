@@ -1,19 +1,22 @@
 codestyle:
 	pycodestyle setup.py
-	pycodestyle DeceptionLogicAPI/__init__.py
-	pycodestyle DeceptionLogicAPI/DeceptionLogicAPI.py
+	pycodestyle deceptionlogic/__init__.py
+	pycodestyle deceptionlogic/api/__init__.py
+	pycodestyle deceptionlogic/api/client.py
 	pycodestyle example.py
 
 fix-codestyle:
 	autopep8 --in-place --aggressive setup.py
-	autopep8 --in-place --aggressive DeceptionLogicAPI/__init__.py
-	autopep8 --in-place --aggressive DeceptionLogicAPI/DeceptionLogicAPI.py
+	autopep8 --in-place --aggressive deceptionlogic/__init__.py
+	autopep8 --in-place --aggressive deceptionlogic/api/__init__.py
+	autopep8 --in-place --aggressive deceptionlogic/api/client.py
 	autopep8 --in-place --aggressive example.py
 
 lint:
 	pylint setup.py
-	pylint DeceptionLogicAPI/__init__.py
-	pylint DeceptionLogicAPI/DeceptionLogicAPI.py
+	pylint deceptionlogic/__init__.py
+	pylint deceptionlogic/api/__init__.py
+	pylint deceptionlogic/api/client.py
 	pylint example.py
 
 env:
@@ -27,3 +30,6 @@ wheel:
 
 publish:
 	twine upload dist/*
+
+clean:
+	find . -name "*.pyc" -type f -delete

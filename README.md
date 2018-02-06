@@ -4,7 +4,7 @@ Deception Logic API Client Library - A python wrapper for the Deception Logic AP
 
 ### Install
 
-`pip install DeceptionLogicAPI`
+`pip install deceptionlogic`
 
 ### Usage
 

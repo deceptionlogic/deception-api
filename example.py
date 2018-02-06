@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 """
-Example script for DeceptionLogicAPI
+Example script for using the Deception Logic API client
 
 In this example, API credentials must be exported to environment variables:
 export DECEPTIONLOGIC_KEYID=XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX
@@ -10,7 +10,7 @@ export DECEPTIONLOGIC_SECRETKEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 from __future__ import print_function
 import os
 import json
-from DeceptionLogicAPI import DeceptionLogicAPI
+from deceptionlogic import api
 
 
 def out(json_data):
@@ -29,7 +29,7 @@ def main():
     # Deception Logic API object.
     keyid = os.environ["DECEPTIONLOGIC_KEYID"]
     secret = os.environ["DECEPTIONLOGIC_SECRET"]
-    delo = DeceptionLogicAPI.DeceptionLogicAPI(keyid, secret)
+    delo = api.Client(keyid, secret)
 
     # Authenticate to the API and retreive API tokens.
     result = delo.authenticate()

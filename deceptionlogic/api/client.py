@@ -1,11 +1,11 @@
 """
-Deception Logic API
+Deception Logic API Client
 """
 
 import requests
 
 
-class DeceptionLogicAPI(object):
+class Client(object):
     """
     Base class for making requests to the Deception Logic API.
     https://deceptionlogic.com
