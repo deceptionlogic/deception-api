@@ -1,16 +1,16 @@
 ==================
-DeceptionLogicAPI
+deceptionlogic
 ==================
 
-``DeceptionLogicAPI`` is a Python wrapper for the `Deception Logic REST API`_.
+``deceptionlogic`` is a Python wrapper for the `Deception Logic REST API`_.
 
 -----
 usage
 -----
 ::
 
-    from DeceptionLogicAPI import DeceptionLogicAPI
-    delo = DeceptionLogicAPI.DeceptionLogicAPI('keyid', 'secret')
+    from deceptionlogic import api
+    delo = api.Client('keyid', 'secret')
     delo.get_alerts()
 
 More details and the latest updates can be found on the `GitHub Project Page`_.
