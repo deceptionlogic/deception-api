@@ -20,7 +20,7 @@ setup(
     keywords="wrapper library deception logic api",
     url="https://github.com/deceptionlogic/deception-api",
     download_url="https://github.com/deceptionlogic/deception-api",
-    packages=['deceptionlogic', 'deceptionlogic.api'],
+    packages=['deceptionlogic', 'deceptionlogic.aws'],
     long_description=LONG_DESC,
     classifiers=[
         "Intended Audience :: Developers",
