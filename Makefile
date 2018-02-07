@@ -3,6 +3,8 @@ codestyle:
 	pycodestyle deceptionlogic/__init__.py
 	pycodestyle deceptionlogic/api/__init__.py
 	pycodestyle deceptionlogic/api/client.py
+	pycodestyle deceptionlogic/aws/__init__.py
+	pycodestyle deceptionlogic/aws/ec2.py
 	pycodestyle example.py
 
 fix-codestyle:
@@ -10,6 +12,8 @@ fix-codestyle:
 	autopep8 --in-place --aggressive deceptionlogic/__init__.py
 	autopep8 --in-place --aggressive deceptionlogic/api/__init__.py
 	autopep8 --in-place --aggressive deceptionlogic/api/client.py
+	autopep8 --in-place --aggressive deceptionlogic/aws/__init__.py
+	autopep8 --in-place --aggressive deceptionlogic/aws/ec2.py
 	autopep8 --in-place --aggressive example.py
 
 lint:
@@ -17,7 +21,9 @@ lint:
 	pylint deceptionlogic/__init__.py
 	pylint deceptionlogic/api/__init__.py
 	pylint deceptionlogic/api/client.py
-	pylint example.py
+	pylint deceptionlogic/aws/__init__.py
+	pylint deceptionlogic/aws/ec2.py
+	pylint --disable=W example.py
 
 env:
 	virtualenv -p python .env

@@ -18,6 +18,7 @@ class Client(object):
     alerts_endpoint = "/alerts"
     events_endpoint = "/events"
     profiles_endpoint = "/profiles"
+    profile_endpoint = "/profile"
     services_endpoint = "/services"
     service_endpoint = "/service"
     agent_endpoint = "/agent"
@@ -88,6 +89,13 @@ class Client(object):
         Get all profiles
         """
         return self._make_request(endpoint=self.profiles_endpoint)
+
+    def get_profile(self, guid):
+        """
+        Get a profile record by guid
+        """
+        return self._make_request(
+            endpoint=self.profile_endpoint, append_url=guid)
 
     def get_services(self):
         """

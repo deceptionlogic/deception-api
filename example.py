@@ -10,7 +10,7 @@ export DECEPTIONLOGIC_SECRETKEY=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 from __future__ import print_function
 import os
 import json
-from deceptionlogic import api
+from deceptionlogic import api, aws
 
 
 def out(json_data):
@@ -61,7 +61,7 @@ def main():
         # Second parameter is the profile_guid
         status = delo.set_agent_profile(
             'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-            'XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX')
+            '00000000-0000-0000-0000-000000000001')
         out(status)
 
         # Get a single agent
@@ -69,6 +69,27 @@ def main():
         agent = delo.get_agent(
             'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx')
         out(agent)
+        """
+
+        """
+        # Example of updating Amazon EC2 security group based on a profile.
+        # The deceptionlogic.aws module implements the boto3 SDK,
+        # see documentation for configuring AWS credentials and region:
+        # http://boto3.readthedocs.io/en/latest/guide/quickstart.html#configuration
+        ec2 = aws.EC2()
+
+        # get profile record
+        profile = delo.get_profile('00000000-0000-0000-0000-000000000001')
+
+        # get services defined in profile record
+        services = profile[0]['services'][0]
+
+        # add an ip permission for each service
+        for service in services:
+            ec2.add_ip_permission(delo.get_service(service['guid']))
+
+        # set security group ip permissions based on security group name
+        ec2.set_ip_permissions('launch-wizard-1')
         """
 
 
