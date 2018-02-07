@@ -11,7 +11,7 @@ with open(os.path.join(HERE, 'README.rst')) as f:
 
 setup(
     name="deceptionlogic",
-    version="0.0.2",
+    version="0.0.3",
     author="Deception Logic, Corp.",
     author_email="info@deceptionlogic.com",
     description=("A python wrapper for the Deception Logic API - "
@@ -28,5 +28,5 @@ setup(
         "Programming Language :: Python :: 2.7",
         "License :: OSI Approved :: MIT License",
     ],
-    install_requires=['requests']
+    install_requires=['requests', 'boto3']
 )
