@@ -2,12 +2,23 @@
 deceptionlogic
 ==================
 
-``deceptionlogic`` is a Python wrapper for the `Deception Logic REST API`_.
+``deceptionlogic`` is a Python wrapper and CLI for the `Deception Logic REST API`_.
 
------
-usage
------
-::
+Installation
+------------
+.. code-block:: bash
+
+    $ pip install deceptionlogic
+
+CLI usage
+---------
+.. code-block:: bash
+
+    $ deception --get alerts
+
+Module usage
+------------
+.. code-block:: python
 
     from deceptionlogic import api
     delo = api.Client('keyid', 'secret')

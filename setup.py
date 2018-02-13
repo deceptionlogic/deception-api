@@ -11,13 +11,13 @@ with open(os.path.join(HERE, 'README.rst')) as f:
 
 setup(
     name="deceptionlogic",
-    version="0.0.3",
-    author="Deception Logic, Corp.",
+    version="0.0.4",
+    author="Deception Logic, Inc.",
     author_email="info@deceptionlogic.com",
-    description=("A python wrapper for the Deception Logic API - "
+    description=("A python wrapper and CLI for the Deception Logic API - "
                  "https://deceptionlogic.com"),
     license="MIT",
-    keywords="wrapper library deception logic api",
+    keywords="wrapper library deception logic api cli",
     url="https://github.com/deceptionlogic/deception-api",
     download_url="https://github.com/deceptionlogic/deception-api",
     packages=['deceptionlogic', 'deceptionlogic.aws'],
@@ -28,5 +28,6 @@ setup(
         "Programming Language :: Python :: 2.7",
         "License :: OSI Approved :: MIT License",
     ],
-    install_requires=['requests', 'boto3']
+    install_requires=['future', 'requests', 'boto3'],
+    script=['deceptionlogic/bin/deception']
 )

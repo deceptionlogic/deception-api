@@ -5,6 +5,7 @@ codestyle:
 	pycodestyle deceptionlogic/api/client.py
 	pycodestyle deceptionlogic/aws/__init__.py
 	pycodestyle deceptionlogic/aws/ec2.py
+	pycodestyle deceptionlogic/bin/deception
 	pycodestyle example.py
 
 fix-codestyle:
@@ -14,6 +15,7 @@ fix-codestyle:
 	autopep8 --in-place --aggressive deceptionlogic/api/client.py
 	autopep8 --in-place --aggressive deceptionlogic/aws/__init__.py
 	autopep8 --in-place --aggressive deceptionlogic/aws/ec2.py
+	autopep8 --in-place --aggressive deceptionlogic/bin/deception
 	autopep8 --in-place --aggressive example.py
 
 lint:
@@ -23,6 +25,7 @@ lint:
 	pylint deceptionlogic/api/client.py
 	pylint deceptionlogic/aws/__init__.py
 	pylint deceptionlogic/aws/ec2.py
+	pylint deceptionlogic/bin/deception
 	pylint --disable=W example.py
 
 env:
@@ -35,7 +38,7 @@ wheel:
 	python setup.py bdist_wheel --universal
 
 publish:
-	twine upload dist/*
+	twine upload --skip-existing dist/*
 
 clean:
 	find . -name "*.pyc" -type f -delete

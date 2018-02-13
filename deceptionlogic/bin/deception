@@ -1,0 +1,114 @@
+#!/usr/bin/env python
+"""
+Deception Logic command line tool
+"""
+from __future__ import print_function
+import os
+import sys
+import json
+import argparse
+from deceptionlogic import api, aws
+
+
+def print_json_data(json_data, pretty=False):
+    """
+    Print JSON data, with option of pretty printing
+    """
+    if pretty:
+        print(json.dumps(json_data, indent=4))
+    else:
+        print(json.dumps(json_data))
+
+
+def main():
+    """
+    Main function for Deception Logic CLI tool
+    """
+    try:
+        keyid = os.environ["DECEPTIONLOGIC_KEYID"]
+        secret = os.environ["DECEPTIONLOGIC_SECRET"]
+    except KeyError as error:
+        print("Environment variable not set {}".format(str(error)))
+        exit()
+
+    # Create DeLo object
+    delo = api.Client(keyid, secret)
+
+    # Authenticate to API
+    auth = delo.authenticate()
+
+    # Parse arguments
+    parser = argparse.ArgumentParser(
+        description="Process command line arguments.")
+
+    parser.add_argument(
+        '--list',
+        help='List objects.',
+        default=None,
+        choices=['agents', 'alerts', 'events', 'profiles', 'services'])
+    parser.add_argument(
+        '--change',
+        help='Change objects.',
+        default=None,
+        choices=['profile'])
+    parser.add_argument(
+        '--agent-id',
+        help='Agent identifier.',
+        default=None)
+    parser.add_argument(
+        '--profile-guid',
+        help='Profile GUID.',
+        default=None)
+    parser.add_argument(
+        '--aws-ec2-security-group',
+        help='AWS EC2 security group name.',
+        default=None)
+    parser.add_argument(
+        '--pretty',
+        help='Print JSON in pretty format.',
+        default=False,
+        action="store_true")
+
+    args = parser.parse_args()
+
+    # If auth is success, execute on arguments
+    if auth["status"] != "success":
+        print("Authentiaction failed.")
+    else:
+        delo.token = auth["token"]
+        delo.identifier = auth["id"]
+
+        if args.list:
+            try:
+                method = getattr(delo, 'get_' + args.list.replace("-", "_"))
+            except AttributeError as error:
+                print(str(error))
+            else:
+                print_json_data(method(), args.pretty)
+
+        elif args.change == 'profile':
+            if args.agent_id is None:
+                parser.print_help()
+                sys.exit()
+
+            if args.profile_guid is None:
+                parser.print_help()
+                sys.exit()
+
+            result = delo.set_agent_profile(args.agent_id, args.profile_guid)
+
+            if result['status'] == 'success':
+                if args.aws_ec2_security_group is not None:
+                    ec2 = aws.EC2()
+                    profile = delo.get_profile(args.profile_guid)
+                    services = profile[0]['services'][0]
+                    for service in services:
+                        ec2.add_ip_permission(
+                            delo.get_service(service['guid']))
+                    ec2.set_ip_permissions(args.aws_ec2_security_group)
+            else:
+                print('{}'.format(result['message']))
+
+
+if __name__ == '__main__':
+    main()

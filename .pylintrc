@@ -1,3 +1,2 @@
 [MASTER]
-
-disable=pointless-string-statement
+disable=pointless-string-statement,too-many-branches,too-many-statements
