@@ -28,6 +28,9 @@ lint:
 	pylint deceptionlogic/bin/deception
 	pylint --disable=W example.py
 
+install:
+	pip install --upgrade future requests boto3 pylint pycodestyle
+
 env:
 	virtualenv -p python .env
 
