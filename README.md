@@ -2,6 +2,9 @@
 
 Deception Logic API Client Library - A python wrapper and CLI for the Deception Logic API.
 
+[![Latest Version](https://img.shields.io/pypi/v/deceptionlogic.svg)](https://pypi.python.org/pypi/deceptionlogic/)
+[![Build Status](https://travis-ci.org/deceptionlogic/deception-api.svg?branch=master)](https://travis-ci.org/deceptionlogic/deception-api)
+
 ### Installation
 
 `pip install deceptionlogic`
