@@ -11,7 +11,7 @@ with open(os.path.join(HERE, 'README.rst')) as f:
 
 setup(
     name="deceptionlogic",
-    version="0.0.4",
+    version="0.0.5",
     author="Deception Logic, Inc.",
     author_email="info@deceptionlogic.com",
     description=("A python wrapper and CLI tool for the Deception Logic API."),
