@@ -2,7 +2,14 @@
 deceptionlogic
 ==================
 
-``deceptionlogic`` is a Python wrapper and CLI for the `Deception Logic REST API`_.
+.. image:: https://img.shields.io/pypi/v/deceptionlogic.svg
+    :target: https://pypi.python.org/pypi/deceptionlogic/
+    :alt: Latest Version
+
+.. image:: https://travis-ci.org/deceptionlogic/deception-api.svg?branch=master
+    :target: https://travis-ci.org/deceptionlogic/deception-api
+
+``deceptionlogic`` is a Python wrapper and CLI tool for the `Deception Logic REST API`_.
 
 Installation
 ------------

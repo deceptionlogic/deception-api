@@ -14,11 +14,10 @@ setup(
     version="0.0.4",
     author="Deception Logic, Inc.",
     author_email="info@deceptionlogic.com",
-    description=("A python wrapper and CLI for the Deception Logic API - "
-                 "https://deceptionlogic.com"),
+    description=("A python wrapper and CLI tool for the Deception Logic API."),
     license="MIT",
     keywords="wrapper library deception logic api cli",
-    url="https://github.com/deceptionlogic/deception-api",
+    url="http://deceptionlogic.com",
     download_url="https://github.com/deceptionlogic/deception-api",
     packages=['deceptionlogic', 'deceptionlogic.aws'],
     long_description=LONG_DESC,
