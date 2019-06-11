@@ -11,7 +11,7 @@ with open(os.path.join(HERE, 'README.rst')) as f:
 
 setup(
     name="deceptionlogic",
-    version="0.0.5",
+    version="1.0.0",
     author="Deception Logic, Inc.",
     author_email="info@deceptionlogic.com",
     description=("A python wrapper and CLI tool for the Deception Logic API."),
@@ -28,5 +28,5 @@ setup(
         "License :: OSI Approved :: MIT License",
     ],
     install_requires=['future', 'requests', 'boto3'],
-    script=['deceptionlogic/bin/deception']
+    scripts=['deceptionlogic/bin/deception']
 )
