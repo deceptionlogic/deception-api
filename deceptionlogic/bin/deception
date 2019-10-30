@@ -29,7 +29,7 @@ def main():
         secret = os.environ["DECEPTIONLOGIC_SECRET"]
     except KeyError as error:
         print("Environment variable not set {}".format(str(error)))
-        exit()
+        sys.exit()
 
     # Create DeLo object
     delo = api.Client(keyid, secret)

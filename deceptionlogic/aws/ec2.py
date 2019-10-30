@@ -5,7 +5,7 @@ Deception Logic AmazonEC2 API Wrapper
 import boto3
 
 
-class EC2(object):
+class EC2():
     """
     Base class for Deception Logic integration with AmazonEC2
     """

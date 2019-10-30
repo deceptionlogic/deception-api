@@ -29,13 +29,13 @@ lint:
 	pylint --disable=W example.py
 
 install:
-	pip install --upgrade future requests boto3 pylint pycodestyle
+	pip install --upgrade future requests boto3 pylint pycodestyle wheel
 
 env:
 	virtualenv -p python .env
 
 env3:
-	virutalenv -p python3 .env3
+	python3 -m venv .env3
 
 wheel:
 	python setup.py bdist_wheel --universal

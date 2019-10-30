@@ -1,2 +1,2 @@
 [MASTER]
-disable=pointless-string-statement,too-many-branches,too-many-statements
+disable=pointless-string-statement,too-many-branches,too-many-statements,old-style-class,no-member
