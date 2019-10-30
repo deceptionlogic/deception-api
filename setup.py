@@ -11,7 +11,7 @@ with open(os.path.join(HERE, 'README.rst')) as f:
 
 setup(
     name="deceptionlogic",
-    version="1.0.0",
+    version="1.0.1",
     author="Deception Logic, Inc.",
     author_email="info@deceptionlogic.com",
     description=("A python wrapper and CLI tool for the Deception Logic API."),
@@ -19,7 +19,7 @@ setup(
     keywords="wrapper library deception logic api cli",
     url="http://deceptionlogic.com",
     download_url="https://github.com/deceptionlogic/deception-api",
-    packages=['deceptionlogic', 'deceptionlogic.aws'],
+    packages=['deceptionlogic', 'deceptionlogic.api', 'deceptionlogic.aws'],
     long_description=LONG_DESC,
     classifiers=[
         "Intended Audience :: Developers",
