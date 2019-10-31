@@ -34,6 +34,10 @@ def main():
     # Create DeLo object
     delo = api.Client(keyid, secret)
 
+    # Set base url if env variable is set
+    if "DECEPTIONLOGIC_BASEURL" in os.environ:
+        delo.base_url = os.environ["DECEPTIONLOGIC_BASEURL"]
+
     # Authenticate to API
     auth = delo.authenticate()
 
