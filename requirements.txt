@@ -3,4 +3,5 @@ requests
 boto3
 pylint
 pycodestyle
+twine
 wheel
