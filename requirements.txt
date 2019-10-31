@@ -1,0 +1,6 @@
+future
+requests
+boto3
+pylint
+pycodestyle
+wheel

@@ -29,19 +29,28 @@ lint:
 	pylint --disable=W example.py
 
 install:
-	pip install --upgrade future requests boto3 pylint pycodestyle wheel
+	pip install --upgrade -r requirements.txt
 
 env:
 	virtualenv -p python .env
+	.env/bin/pip install --upgrade -r requirements.txt
 
 env3:
 	python3 -m venv .env3
+	.env3/bin/pip install --upgrade pip
+	.env3/bin/pip install --upgrade -r requirements.txt
 
 wheel:
+	-rm dist/*
 	python setup.py bdist_wheel --universal
 
 publish:
 	twine upload --skip-existing dist/*
 
+local-install:
+	pip uninstall -y deceptionlogic
+	pip install dist/*
+
 clean:
 	find . -name "*.pyc" -type f -delete
+	rm -rf dist
